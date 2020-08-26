@@ -2,29 +2,7 @@ using System;
 
 class MainClass {
 
-  //Exercicio 3) Faça um Programa que peça dois números e imprima a soma
-  public static void soma2num(){
-    float num1 = pegaNum();
-    float num2 = pegaNum();
-    Console.WriteLine("\nA soma dos numeros informados é {0}\n", (num1+num2));
-  }
-
-  //Exercicio 4) Faça um Programa que peça as 4 notas bimestrais e mostre a média.
-  public static void calcMedia(){
-    
-    float[] notas = new float[4];
-    float media=0;
-    Console.WriteLine("Digite a seguir, as 4 notas bimestrais, sendo uma de cada vez");
-    for(int i=0;i<4;i++){
-      notas[i] = pegaNum();
-      media = media + notas[i];
-    }
-    
-    media = (float)media/4;
-
-    Console.WriteLine("\nA media das notas informadas é {0}\n",media);
-  }
-
+  //Calculadora basica
   public static void calcBasica(){
 
     char operacao;
@@ -42,23 +20,80 @@ class MainClass {
     switch (operacao){
 
       case +:
-        
+        Console.WriteLine("A soma dos dois numeros digitados é {0}", (num1 + num2));
         break;
-      case -:
-        
+      case '-':
+        if(num1 > num2)
+          Console.WriteLine("A subtração dos dois numeros digitados é {0}", (num1 - num2));
+        else
+          Console.WriteLine("A subtração dos dois numeros digitados é {0}", (num2 - num1));
         break;
-      case *:
-        
+      case '*':
+        Console.WriteLine("A multiplicação dos dois numeros digitados é {0}", (num1 * num2));
         break;
-      case /:
-        
+      case '/':
+        Console.WriteLine("A divisão dos dois numeros digitados é {0}", (num1 / num2));
         break;
       default:
         Console.WriteLine("Opcao incorreta!");
         break;
     }
 
+  }
 
+  //Lanchonete
+  public static void lanchonete(){
+
+    int produto = 0;
+    double 
+
+
+    Console.WriteLine("Bem vindo a Lanchonete da UCL!");
+    Console.WriteLine("Código   Produto      Preço Unitário (R$)");
+    Console.WriteLine("---------------------------------");
+    Console.WriteLine(" 100  Cachorro quente   R$ 1,70  ");
+    Console.WriteLine(" 101   Bauru Simples    R$ 2,30  ");
+    Console.WriteLine(" 102   Bauru com ovo    R$ 2,60  ");
+    Console.WriteLine(" 103   Hamburguer       R$ 2,40  ");
+    Console.WriteLine(" 104   Cheeseburguer    R$ 2,50  ");
+    Console.WriteLine(" 105   Refrigerante     R$ 1,00  ");
+    Console.WriteLine("----------------------------------");
+
+    do{
+      Console.Write("Digite o código do Produto que deseja, ou 0 para fechar a compra: ");
+      produto = int.Parse(Console.ReadLine());
+
+      switch (produto){
+        case 100:
+        case 101:
+        case 102:
+        case 103:
+        case 104:
+        case 105:
+
+      }
+
+    }while(produto != 0);
+
+
+
+
+  }
+
+  //Exercicio 4) Faça um Programa que peça as 4 notas bimestrais e mostre a média.
+  public static void calcMedia(){
+    
+    float[] notas = new float[4];
+    float media=0;
+    Console.WriteLine("Digite a seguir, as 4 notas bimestrais, sendo uma de cada vez");
+    for(int i=0;i<4;i++){
+      notas[i] = pegaNum();
+      media = media + notas[i];
+    }
+    
+    media = (float)media/4;
+
+    Console.WriteLine("\nA media das notas informadas é {0}\n",media);
   }
 
   //funcao para coletas numeros inteiros do usuario
@@ -78,7 +113,7 @@ class MainClass {
     while(repeat){
 
       Console.WriteLine("----- MENU DE OPCOES DE EXERCICIOS----- ");
-      Console.WriteLine("      (1) calculadora basica");
+      Console.WriteLine("      (1) Calculadora basica");
       Console.WriteLine("      (2) Lanchonete");
       Console.WriteLine("      (3) Votação");
       Console.Write("      (4) Sair\n-> ");
@@ -88,10 +123,10 @@ class MainClass {
       switch (op){
 
         case 1:
-          
+          calcBasica();
           break;
         case 2:
-          
+          lanchonete();
           break;
         case 3:
           
